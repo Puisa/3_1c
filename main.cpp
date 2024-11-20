@@ -23,6 +23,35 @@ double durchschnittBerechnen(vector<double> eingabe)
     return summe / eingabe.size();
 }
 
+// Funktion zur Berechnung des kleinsten Wertes
+double kleinsterWert(vector<double> eingabe)
+{
+    double kleinster = eingabe[0];
+    for (double wert : eingabe)
+    {
+        if (wert < kleinster)
+        {
+            kleinster = wert;
+        }
+    }
+    return kleinster;
+}
+
+// Funktion zur Berechnung des größten Wertes
+double groessterWert(vector<double> eingabe)
+{
+    double groesster = eingabe[0];
+    for (double wert : eingabe)
+    {
+        if (wert > groesster)
+        {
+            groesster = wert;
+        }
+    }
+    return groesster;
+}
+
+
 int main()
 {
     vector <double> abstaende = {};
@@ -36,11 +65,15 @@ int main()
     }
 
     // Berechnungen
-    double summeAbstaende = summeBerechnen(abstaende); // Summe berechnen
-    double durchschnittsabstand = durchschnittBerechnen(abstaende);     // durchschnittliche Entfernung berechnen
+    double summeAbstaende = summeBerechnen(abstaende);
+    double durchschnittsabstand = durchschnittBerechnen(abstaende);
+    double kleinsterAbstand = kleinsterWert(abstaende);
+    double groessterAbstand = groessterWert(abstaende);
 
-// Ausgabe
+    // Ausgabe
     cout << "Die Summe der Abstände ist " << summeAbstaende << '\n';
     cout << "Der Durchschnittsabstand ist " << durchschnittsabstand << '\n';
+    cout << "Der kleinste Abstand ist " << kleinsterAbstand << '\n';
+    cout << "Der größte Abstand ist " << groessterAbstand << '\n';
     return 0;
 }
